@@ -33,11 +33,13 @@ The JSON-RPC interface provided by Filecoin node implementations is the primary 
 
 Ultimately the [Lotus RPC API](https://github.com/filecoin-project/lotus/blob/b73d4e0481517b395a0e9aa9af5dab8bedc18285/documentation/en/api-v1-unstable-methods.md#mpoolpushmessage) is the defacto specification currently, which includes 280+ methods. Based on our exploration and discussions with the Lotus team we have established that some methods provide duplicated functionality (eg. `ChainGetGenesis()` is equivalent to`ChainGetTipSetByHeight(0)`). Another subset of methods are related to implementation-specific internals (eg. `ChainHotGC`). And yet another subset are for the purpose of configuring the instance, which could be exposed through other means (eg. CLI, config file) depending on the design principles of a node implementation. This leads us to conclude that the canonical RPC interface should only include a subset of the methods currently supported by Lotus.
 
-The defacto Lotus specification is lacking in several features: complete JSON schemas, descriptions for each method, and reliable consistency with the implementation. This motivates us to propose a normative OpenRPC schema for the purpose of defining this interface in a machine readable format. This format in turn enables:
+The defacto Lotus specification is lacking in several features: complete JSON schemas, descriptions for each method, and reliable consistency with the implementation[^1]. This motivates us to propose a normative OpenRPC schema for the purpose of defining this interface in a machine readable format. This format in turn enables:
 1. Compliance checks - enable implementations of the interface to verify the syntax
 2. Specificity - it provides a language agnostic format for defining the ABI of the methods in the interface
 3. Discoverability - allow consumers to dynamically interact with providers
 4. Lack of desire to reinvent the wheel - It's not perfect, but it works...
+
+[^1]: https://github.com/filecoin-project/lotus/issues/12164
 
 Additionally, by establishing a specification we seek to establish a greater responsibility on implementers and encourage more discourse for future iterations and further interfaces. The present API shows signs of rapid iteration and the resulting technical debt.
 
@@ -235,7 +237,6 @@ A better API, one that is well defined and carefully constructed, will ease the 
 - [ ] Change link to be an issue for the inconsistency
 - [ ] Add a note on URIs (eg. `/rpc/v1`)
 - [ ] Publish two versions of the document, one per URI
-- [ ] Describe ChainNotify in OpenRPC
 - [ ] Make ChainNotify definition more generic
 - [ ] Add link to playground
 - [ ] @ansermino look into contentdescriptors
