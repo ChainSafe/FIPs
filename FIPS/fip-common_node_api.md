@@ -143,7 +143,19 @@ simulataneously, with transport-level correlation agreed out-of-band.
 | ---------- | ---- | --------------------- |
 | MethodName | Tags | Description of method |
 
+### Slice serialization
 
+In `Go`, `[]` slices have three states, which are serialized differently:
+1. Uninitialized (never assigned), serialized as `null`
+2. Initialized, but empty, serialized as `[]`
+3. Initialized, but non-empty, serialized as `[<item>]`
+
+The current draft of the spec [represents slices as `null | []`](https://github.com/ChainSafe/filecoin-common-node-api/blob/a882594795e19f12d5b8f5aaff3bf62eae0fcbef/spec.json#L146-L154).
+However, the dependence of representation on write ordering to a variable is viewed
+by the authors as an unfortunate wart,
+and has [caused issues for client interoperability](https://github.com/ChainSafe/forest/issues/4424#issuecomment-2205601945).
+We campaign also for this specification to _always serialize slices as JSON Arrays_,
+which will require code changes from the Lotus team.
 
 ## Design Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
