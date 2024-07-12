@@ -330,19 +330,5 @@ A better API, one that is well defined and carefully constructed, will ease the 
 ## TODO
 <!--A section that lists any unresolved issues or tasks that are part of the FIP proposal. Examples of these include performing benchmarking to know gas fees, validate claims made in the FIP once the final implementation is ready, etc. A FIP can only move to a “Last Call” status once all these items have been resolved.-->
 
-- [x] Confirm methods that are included
-- [ ] Improve descriptions for included methods
-- [ ] Change link to be an issue for the inconsistency
-- [ ] Add a note on URIs (eg. `/rpc/v1`)
-- [ ] Publish two versions of the document, one per URI
-- [x] Make ChainNotify definition more generic
-- [ ] Add link to playground
-- [ ] Perform proper spellcheck
-- [ ] Determine if this should be FIP or FRC
-- [ ] Setup discussion forum and add to header
-- [ ] Reach out to Venus to establish the state of their RPC
-- [ ] Transfer spec repo to filecoin-project and update links above
-- [ ] Add examples to all methods in spec
-
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
