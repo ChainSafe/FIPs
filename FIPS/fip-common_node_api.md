@@ -49,6 +49,9 @@ Additionally, by establishing a specification we seek to establish a greater res
 Using the OpenRPC specification format we define several groups of methods. These methods are defined in the OpenRPC specification found here: https://github.com/ChainSafe/filecoin-openrpc-spec. A list of the methods is included below for posterity.
 
 All methods are reproduced identically to their present implementation in Lotus 1.26.1.
+Note that Lotus hosts two different API's at HTTP paths [`/rpc/v0`](https://github.com/filecoin-project/lotus/blob/v1.28.0-rc5/documentation/en/api-v0-methods.md) and [`/rpc/v1`](https://github.com/filecoin-project/lotus/blob/v1.28.0-rc5/documentation/en/api-v1-unstable-methods.md),
+with the latter being marked as _unstable_.
+This document aims to specify the _latest_ API version (in this case, `v1`) and breaking changes will be negotiated through further FIPs.
 
 Categories have been assigned to indicate the identified use case (see Design Rationale).
 
